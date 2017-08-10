@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript">
+
+$.post("http://localhost:9090/v1/connector/source", 
+		{
+		    "name":"xuwl-test",
+		    "description":"xxx",
+		    "connectorType":"jdbc",
+		    "owner":"xuwl",
+		    "config":{
+		        "databaseIp":"172.16.50.22",
+		        "dbName":"stargate_test",
+		        "dbType":"mysql",
+		        "password":"rHuUF3zJpiAvC3YnT4bIKA==",
+		        "taskNum":"1",
+		        "port":"3306",
+		        "username":"root",
+		        "tableName":"t_people_1000",
+		        "tableTypes":"TABLE",
+		        "mode":"incrementing",
+		        "checkColumn":"id",
+		        "pollInterval":"5000",
+		        "maxPollRows":"100"
+		    }
+		}, 
+				function(data, status) {
+					if(data=="ok" || status=="success"){
+						//暂时为刷新页面，以后改为只刷新评论部分
+						window.location.reload();
+					}
+				}
+			);
+</script>
+</head>
+<body>
+
+</body>
+</html>

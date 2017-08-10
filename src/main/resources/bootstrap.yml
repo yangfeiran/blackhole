@@ -1,0 +1,23 @@
+ 
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+#  Uncomment to disable auto-registering all services read from Eureka
+#  ignoredServices: '*'
+  routes:
+    wuji:
+      path: /wuji/**
+      url: http://localhost:8888/wuji
+    test:
+      path: /test/**
+      url: http://localhost:8080/test
+#    customer-by-service:
+#      path: /customer-by-service/**
+#      serviceId: CUSTOMER-SERVICE
+    static:
+      path: /static/**
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO

@@ -1,0 +1,25 @@
+# policy
+
+
+open: 
+  - api: /v1/datafeed/jobs/nexttimes
+    method: GET
+
+restricted:
+  - group: blackhole
+    privileges:
+      - name: blackhole
+        displayName: 数据交换
+        hidden: true
+        apis: 
+         - api: /v1/datafeed/templates
+           method: GET
+         - api: /v1/datafeed/job
+           method: POST
+         - api: /v1/datafeed/jobs/
+           method: PUT
+         - api: /v1/datafeed/jobs/
+           method: DELETE
+         - api: /v1/datafeed/jobs/
+           method: DELETE
+         

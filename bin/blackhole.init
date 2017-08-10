@@ -1,0 +1,84 @@
+#!/bin/sh
+# chkconfig: 345 99 01
+# description: Auto-starts blackhole
+# /etc/init.d/blackhole
+# Tomcat auto-start
+# Source function library.
+. /etc/init.d/functions
+# source networking configuration.
+. /etc/sysconfig/network
+RETVAL=0
+export PRO_NAME=blackhole
+export CATALINA_HOME=/opt/server/stargate/${PRO_NAME}
+export CATALINA_BASE=/opt/server/stargate
+export BLACKHOLE_USER=stargate
+export PIDFILE=$CATALINA_HOME/bin/${PRO_NAME}.pid
+start()
+{
+    if [ -f $CATALINA_HOME/bin/start.sh ]; then
+        CHECK=`ps -fwwu BLACKHOLE_USER | grep $PRO_NAME|grep -v grep | grep -v PID | awk '{print $2}'`
+        if [ $CHECK"0"  != "0" ]; then
+            echo "$PRO_NAME is runing,PID:$CHECK"
+        else
+            echo $"Starting $PRO_NAME"
+            su - BLACKHOLE_USER -c $CATALINA_HOME/bin/start.sh
+            RETVAL=$?
+            pgrep  $PRO_NAME > $PIDFILE
+            echo " OK"
+            return $RETVAL
+        fi
+    fi
+
+}
+stop()
+{
+    if [ -f $PIDFILE ]; then
+        echo $"Stopping $PRO_NAME"
+		PID=`cat $PIDFILE`
+		kill  $PID 2>/dev/null
+        RETVAL=$?
+		if [ $RETVAL -eq 0 ]; then
+			rm -rf  $PIDFILE
+		else
+            ps -fwwu BLACKHOLE_USER | grep $PRO_NAME|grep -v grep | grep -v PID | awk '{print $2}'|xargs kill -9 1>/dev/null 2>&1
+		    RETVAL=$?
+		    rm -rf  $PIDFILE
+		fi
+        echo " OK"
+        return $RETVAL
+    else
+	    echo "$PRO_NAME is stopped"
+    fi
+}
+check()
+{
+    CHECK=`ps -fwwu BLACKHOLE_USER | grep $PRO_NAME|grep -v grep | grep -v PID | awk '{print $2}'`
+	if [ $CHECK"0"  == "0" ]; then
+        echo "$PRO_NAME is not runing!"
+	else
+        echo "$PRO_NAME is runing,PID:$CHECK"
+    fi
+}
+case "$1" in
+start)
+        start
+        ;;
+stop)
+        stop
+        ;;
+restart)
+        echo $"Restaring $PRO_NAME"
+        stop
+        sleep 5
+        start
+        ;;
+status)
+        echo $"Checking $PRO_NAME"
+        check
+        ;;
+*)
+        echo $"Usage: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+esac
+exit $RETVAL
