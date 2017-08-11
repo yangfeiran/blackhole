@@ -245,10 +245,10 @@ public class JobManager {
     }
 
     public Map<String, Object> getProcessGroupById(String jobId) {
-        ProcessGroupDTO byId = niFiRestClientV1.processGroups().findById(jobId, true, true).orElseThrow(() -> new NifiComponentNotFoundException(jobId, NifiConstants.NIFI_COMPONENT_TYPE.PROCESS_GROUP, null));
-        Job job = jobDao.findOne(byId.getId());
+//        ProcessGroupDTO byId = niFiRestClientV1.processGroups().findById(jobId, true, true).orElseThrow(() -> new NifiComponentNotFoundException(jobId, NifiConstants.NIFI_COMPONENT_TYPE.PROCESS_GROUP, null));
+        Job job = jobDao.findOne(jobId);
         if (job != null) {
-            List<Processor> processorDaoByJobId = processorDao.findByJobId(byId.getId());
+            List<Processor> processorDaoByJobId = processorDao.findByJobId(jobId);
             try {
 //                job.setLables(job.getLables());
                 Map map = MapBeanConvertor.convertToMap(job);
@@ -267,17 +267,19 @@ public class JobManager {
 
     public List<List<String>> getAllProcessGroupsNexttimes(String currentTime) {
         CronExpParser cronExpParser = new CronExpParser();
-        List<Job> jobList = Lists.newArrayList();
-        ProcessGroupDTO root = niFiRestClientV1.processGroups().findRoot();
-        Set<ProcessGroupDTO> all = niFiRestClientV1.processGroups().findAll(root.getId());
-        Iterator<ProcessGroupDTO> iterator = all.iterator();
-        while (iterator.hasNext()) {
-            ProcessGroupDTO next = iterator.next();
-            Job job = jobDao.findOne(next.getId());
-            if (job != null && job.getState().equalsIgnoreCase("running")) {
-                jobList.add(job);
-            }
-        }
+//        List<Job> jobList = Lists.newArrayList();
+//        ProcessGroupDTO root = niFiRestClientV1.processGroups().findRoot();
+//        Set<ProcessGroupDTO> all = niFiRestClientV1.processGroups().findAll(root.getId());
+//        Iterator<ProcessGroupDTO> iterator = all.iterator();
+//        while (iterator.hasNext()) {
+//            ProcessGroupDTO next = iterator.next();
+//            Job job = jobDao.findOne(next.getId());
+//            if (job != null && job.getState().equalsIgnoreCase("running")) {
+//                jobList.add(job);
+//            }
+//        }
+
+        Iterable<Job> jobList = jobDao.findAll();
         Map<String, String> cronExpLs = Maps.newHashMap();
         for (Job job : jobList) {
             cronExpLs.put(job.getJobName(), job.getCron());
