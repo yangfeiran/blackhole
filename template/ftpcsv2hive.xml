@@ -1,0 +1,648 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.0">
+  <description>csv data to hive</description>
+  <groupId>99db1855-100e-115c-c64b-6ad411258110</groupId>
+  <name>ftpcsv2hive</name>
+  <snippet>
+    <connections>
+      <id>99db1859-100e-115c-0000-000000000000</id>
+      <parentGroupId>99db1855-100e-115c-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>99db1855-100e-115c-0000-000000000000</groupId>
+        <id>99db1858-100e-115c-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>99db1855-100e-115c-0000-000000000000</groupId>
+        <id>015c100d-99db-183b-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>015c100e-99db-183b-0000-000000000000</id>
+      <parentGroupId>99db1855-100e-115c-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>99db1855-100e-115c-0000-000000000000</groupId>
+        <id>015c100d-99db-183b-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>99db1855-100e-115c-0000-000000000000</groupId>
+        <id>015c100c-99db-183b-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <processors>
+      <id>99db1858-100e-115c-0000-000000000000</id>
+      <parentGroupId>99db1855-100e-115c-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>397.365478515625</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Hadoop Configuration Resources</key>
+            <value>
+              <name>Hadoop Configuration Resources</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+            <value>
+              <name>Kerberos Principal</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+            <value>
+              <name>Kerberos Keytab</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Relogin Period</key>
+            <value>
+              <name>Kerberos Relogin Period</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Additional Classpath Resources</key>
+            <value>
+              <name>Additional Classpath Resources</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>
+              <name>Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>
+              <name>Conflict Resolution Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Block Size</key>
+            <value>
+              <name>Block Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>IO Buffer Size</key>
+            <value>
+              <name>IO Buffer Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Replication</key>
+            <value>
+              <name>Replication</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Permissions umask</key>
+            <value>
+              <name>Permissions umask</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Owner</key>
+            <value>
+              <name>Remote Owner</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Group</key>
+            <value>
+              <name>Remote Group</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Compression codec</key>
+            <value>
+              <name>Compression codec</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Hadoop Configuration Resources</key>
+            <value>/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml</value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+          </entry>
+          <entry>
+            <key>Kerberos Relogin Period</key>
+            <value>4 hours</value>
+          </entry>
+          <entry>
+            <key>Additional Classpath Resources</key>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>/tmp/nifi_test_0622_1</value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>fail</value>
+          </entry>
+          <entry>
+            <key>Block Size</key>
+          </entry>
+          <entry>
+            <key>IO Buffer Size</key>
+          </entry>
+          <entry>
+            <key>Replication</key>
+          </entry>
+          <entry>
+            <key>Permissions umask</key>
+          </entry>
+          <entry>
+            <key>Remote Owner</key>
+          </entry>
+          <entry>
+            <key>Remote Group</key>
+          </entry>
+          <entry>
+            <key>Compression codec</key>
+            <value>NONE</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutHDFS</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+    </processors>
+    <processors>
+      <id>015c100c-99db-183b-0000-000000000000</id>
+      <parentGroupId>99db1855-100e-115c-0000-000000000000</parentGroupId>
+      <position>
+        <x>5.234129540714093</x>
+        <y>0.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Hostname</key>
+            <value>
+              <name>Hostname</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Port</key>
+            <value>
+              <name>Port</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Path</key>
+            <value>
+              <name>Remote Path</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Distributed Cache Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
+              <name>Distributed Cache Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Search Recursively</key>
+            <value>
+              <name>Search Recursively</name>
+            </value>
+          </entry>
+          <entry>
+            <key>File Filter Regex</key>
+            <value>
+              <name>File Filter Regex</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Path Filter Regex</key>
+            <value>
+              <name>Path Filter Regex</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Ignore Dotted Files</key>
+            <value>
+              <name>Ignore Dotted Files</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Poll Batch Size</key>
+            <value>
+              <name>Remote Poll Batch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>
+              <name>Connection Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>
+              <name>Data Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Mode</key>
+            <value>
+              <name>Connection Mode</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Transfer Mode</key>
+            <value>
+              <name>Transfer Mode</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Type</key>
+            <value>
+              <name>Proxy Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+            <value>
+              <name>Proxy Host</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+            <value>
+              <name>Proxy Port</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Http Proxy Username</key>
+            <value>
+              <name>Http Proxy Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Http Proxy Password</key>
+            <value>
+              <name>Http Proxy Password</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Hostname</key>
+            <value>172.16.50.22</value>
+          </entry>
+          <entry>
+            <key>Port</key>
+            <value>21</value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>fc</value>
+          </entry>
+          <entry>
+            <key>Password</key>
+          </entry>
+          <entry>
+            <key>Remote Path</key>
+            <value>/home/fc</value>
+          </entry>
+          <entry>
+            <key>Distributed Cache Service</key>
+          </entry>
+          <entry>
+            <key>Search Recursively</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>File Filter Regex</key>
+          </entry>
+          <entry>
+            <key>Path Filter Regex</key>
+          </entry>
+          <entry>
+            <key>Ignore Dotted Files</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Remote Poll Batch Size</key>
+            <value>5000</value>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>Connection Mode</key>
+            <value>Passive</value>
+          </entry>
+          <entry>
+            <key>Transfer Mode</key>
+            <value>Binary</value>
+          </entry>
+          <entry>
+            <key>Proxy Type</key>
+            <value>DIRECT</value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+          </entry>
+          <entry>
+            <key>Http Proxy Username</key>
+          </entry>
+          <entry>
+            <key>Http Proxy Password</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>*/2 * * * * ?</schedulingPeriod>
+        <schedulingStrategy>CRON_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ListFTP</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.ListFTP</type>
+    </processors>
+    <processors>
+      <id>015c100d-99db-183b-0000-000000000000</id>
+      <parentGroupId>99db1855-100e-115c-0000-000000000000</parentGroupId>
+      <position>
+        <x>4.580718994140625</x>
+        <y>178.66607402283478</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Hostname</key>
+            <value>
+              <name>Hostname</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Port</key>
+            <value>
+              <name>Port</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote File</key>
+            <value>
+              <name>Remote File</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Completion Strategy</key>
+            <value>
+              <name>Completion Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Move Destination Directory</key>
+            <value>
+              <name>Move Destination Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>
+              <name>Connection Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>
+              <name>Data Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Use Compression</key>
+            <value>
+              <name>Use Compression</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Mode</key>
+            <value>
+              <name>Connection Mode</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Transfer Mode</key>
+            <value>
+              <name>Transfer Mode</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Type</key>
+            <value>
+              <name>Proxy Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+            <value>
+              <name>Proxy Host</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+            <value>
+              <name>Proxy Port</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Http Proxy Username</key>
+            <value>
+              <name>Http Proxy Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Http Proxy Password</key>
+            <value>
+              <name>Http Proxy Password</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Hostname</key>
+            <value>172.16.50.22</value>
+          </entry>
+          <entry>
+            <key>Port</key>
+            <value>21</value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>fc</value>
+          </entry>
+          <entry>
+            <key>Password</key>
+          </entry>
+          <entry>
+            <key>Remote File</key>
+            <value>${path}/${filename}</value>
+          </entry>
+          <entry>
+            <key>Completion Strategy</key>
+            <value>None</value>
+          </entry>
+          <entry>
+            <key>Move Destination Directory</key>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>Use Compression</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Connection Mode</key>
+            <value>Passive</value>
+          </entry>
+          <entry>
+            <key>Transfer Mode</key>
+            <value>Binary</value>
+          </entry>
+          <entry>
+            <key>Proxy Type</key>
+            <value>DIRECT</value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+          </entry>
+          <entry>
+            <key>Http Proxy Username</key>
+          </entry>
+          <entry>
+            <key>Http Proxy Password</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>FetchFTP</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>comms.failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>not.found</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>permission.denied</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.FetchFTP</type>
+    </processors>
+  </snippet>
+  <timestamp>06/22/2017 10:06:02 CST</timestamp>
+</template>

@@ -1,0 +1,478 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.0">
+  <description></description>
+  <groupId>015c1032-f63e-182f-4a2c-958b30e86886</groupId>
+  <name>webservice_json2hbase</name>
+  <snippet>
+    <connections>
+      <id>015c1038-f63e-182f-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>015c1032-f63e-182f-0000-000000000000</groupId>
+        <id>015c1037-f63e-182f-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>015c1032-f63e-182f-0000-000000000000</groupId>
+        <id>015c1021-f63e-182f-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>1051115f-198d-1c9d-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>015c1032-f63e-182f-0000-000000000000</groupId>
+        <id>1051115c-198d-1c9d-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>split</selectedRelationships>
+      <source>
+        <groupId>015c1032-f63e-182f-0000-000000000000</groupId>
+        <id>015c1037-f63e-182f-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <controllerServices>
+      <id>015c1058-3c9d-198d-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <comments></comments>
+      <descriptors>
+        <entry>
+          <key>Hadoop Configuration Files</key>
+          <value>
+            <name>Hadoop Configuration Files</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Kerberos Principal</key>
+          <value>
+            <name>Kerberos Principal</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Kerberos Keytab</key>
+          <value>
+            <name>Kerberos Keytab</name>
+          </value>
+        </entry>
+        <entry>
+          <key>ZooKeeper Quorum</key>
+          <value>
+            <name>ZooKeeper Quorum</name>
+          </value>
+        </entry>
+        <entry>
+          <key>ZooKeeper Client Port</key>
+          <value>
+            <name>ZooKeeper Client Port</name>
+          </value>
+        </entry>
+        <entry>
+          <key>ZooKeeper ZNode Parent</key>
+          <value>
+            <name>ZooKeeper ZNode Parent</name>
+          </value>
+        </entry>
+        <entry>
+          <key>HBase Client Retries</key>
+          <value>
+            <name>HBase Client Retries</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Phoenix Client JAR Location</key>
+          <value>
+            <name>Phoenix Client JAR Location</name>
+          </value>
+        </entry>
+      </descriptors>
+      <name>HBase80</name>
+      <properties>
+        <entry>
+          <key>Hadoop Configuration Files</key>
+          <value>/home/nifi/hbase-conf/core-site.xml,/home/nifi/hbase-conf/hbase-site.xml</value>
+        </entry>
+        <entry>
+          <key>Kerberos Principal</key>
+        </entry>
+        <entry>
+          <key>Kerberos Keytab</key>
+        </entry>
+        <entry>
+          <key>ZooKeeper Quorum</key>
+          <value>172.16.50.83</value>
+        </entry>
+        <entry>
+          <key>ZooKeeper Client Port</key>
+          <value>2181</value>
+        </entry>
+        <entry>
+          <key>ZooKeeper ZNode Parent</key>
+        </entry>
+        <entry>
+          <key>HBase Client Retries</key>
+          <value>1</value>
+        </entry>
+        <entry>
+          <key>Phoenix Client JAR Location</key>
+        </entry>
+      </properties>
+      <state>ENABLED</state>
+      <type>org.apache.nifi.hbase.HBase_1_1_2_ClientService</type>
+    </controllerServices>
+    <processors>
+      <id>015c1021-f63e-182f-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <position>
+        <x>1.3888898400009566</x>
+        <y>0.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>URL</key>
+            <value>
+              <name>URL</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Filename</key>
+            <value>
+              <name>Filename</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>
+              <name>Connection Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>
+              <name>Data Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>User Agent</key>
+            <value>
+              <name>User Agent</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Accept Content-Type</key>
+            <value>
+              <name>Accept Content-Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Follow Redirects</key>
+            <value>
+              <name>Follow Redirects</name>
+            </value>
+          </entry>
+          <entry>
+            <key>redirect-cookie-policy</key>
+            <value>
+              <name>redirect-cookie-policy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+            <value>
+              <name>Proxy Host</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+            <value>
+              <name>Proxy Port</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>URL</key>
+            <value>http://172.16.50.81:16001/chinacloud/api/asgard/linkmanager/connection/type/all?pageNum=1&amp;pageSize=10&amp;value=</value>
+          </entry>
+          <entry>
+            <key>Filename</key>
+            <value>datas</value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Username</key>
+          </entry>
+          <entry>
+            <key>Password</key>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>Data Timeout</key>
+            <value>30 sec</value>
+          </entry>
+          <entry>
+            <key>User Agent</key>
+          </entry>
+          <entry>
+            <key>Accept Content-Type</key>
+          </entry>
+          <entry>
+            <key>Follow Redirects</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>redirect-cookie-policy</key>
+            <value>default</value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>GetHTTP</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.GetHTTP</type>
+    </processors>
+    <processors>
+      <id>015c1037-f63e-182f-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <position>
+        <x>1.3892845665861842</x>
+        <y>214.9998766479422</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>JsonPath Expression</key>
+            <value>
+              <name>JsonPath Expression</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Null Value Representation</key>
+            <value>
+              <name>Null Value Representation</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>JsonPath Expression</key>
+            <value>$.datas</value>
+          </entry>
+          <entry>
+            <key>Null Value Representation</key>
+            <value>empty string</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>SplitJson</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>original</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>split</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.SplitJson</type>
+    </processors>
+    <processors>
+      <id>1051115c-198d-1c9d-0000-000000000000</id>
+      <parentGroupId>015c1032-f63e-182f-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>418.51883022883794</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>HBase Client Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.hbase.HBaseClientService</identifiesControllerService>
+              <name>HBase Client Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Table Name</key>
+            <value>
+              <name>Table Name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Row Identifier</key>
+            <value>
+              <name>Row Identifier</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Row Identifier Field Name</key>
+            <value>
+              <name>Row Identifier Field Name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Row Identifier Encoding Strategy</key>
+            <value>
+              <name>Row Identifier Encoding Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Column Family</key>
+            <value>
+              <name>Column Family</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>
+              <name>Batch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Complex Field Strategy</key>
+            <value>
+              <name>Complex Field Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Field Encoding Strategy</key>
+            <value>
+              <name>Field Encoding Strategy</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>HBase Client Service</key>
+            <value>015c1058-3c9d-198d-0000-000000000000</value>
+          </entry>
+          <entry>
+            <key>Table Name</key>
+            <value>yangfeiran_nifi_2</value>
+          </entry>
+          <entry>
+            <key>Row Identifier</key>
+          </entry>
+          <entry>
+            <key>Row Identifier Field Name</key>
+            <value>id</value>
+          </entry>
+          <entry>
+            <key>Row Identifier Encoding Strategy</key>
+            <value>String</value>
+          </entry>
+          <entry>
+            <key>Column Family</key>
+            <value>cf</value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>25</value>
+          </entry>
+          <entry>
+            <key>Complex Field Strategy</key>
+            <value>Text</value>
+          </entry>
+          <entry>
+            <key>Field Encoding Strategy</key>
+            <value>String</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutHBaseJSON</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.hbase.PutHBaseJSON</type>
+    </processors>
+  </snippet>
+  <timestamp>07/19/2017 10:06:01 CST</timestamp>
+</template>
